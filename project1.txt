@@ -1,0 +1,85 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Jan 22 11:12:59 2020
+
+@author: Dell
+"""
+
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Jan 21 12:54:01 2020
+
+@author: Dell
+"""
+
+import matplotlib.pyplot as plt
+#Basic Plot
+
+x = ['base', 'nuteral',' acid', 'water','naoh' ]
+y = [5, 7, 3, 8,7 ]
+plt.bar(x,y)
+plt.show()
+
+#mport pandas as pd
+p=int(input("enter the value"))
+if p in range(3,5):
+    print("good quality")
+else:
+    print("bad quality")
+#1. Bar Graph
+
+plt.title("quality of wine") # Name title of the graph
+plt.xlabel('name os the chemical') # Assign the name of the x axis
+plt.ylabel("percentage of the wine") # Assign the name of the y axis
+plt.bar(x, y, color='yellow') # Change bar color
+plt.show()
+
+
+import pandas as pd
+product = pd.DataFrame({"wine" : ['red win','white wine'], 
+                  "red ph-value" : [3.0,3.5],
+                  "white ph-value" : [3.2,3.6]})
+
+
+# Multi line plot
+ax = product.plot("wine", "red ph-value", kind="line", label = 'red ph-value')
+product.plot("wine", "white ph-value", ax= ax , kind="line", label = 'white ph-value') #ax : axes object
+
+# Set axes
+ax.set(ylabel='red ph-value', xlabel = 'wine', xticks =product["wine"])
+ax.set(ylabel='white ph-value', xlabel = 'wine', xticks =product["wine"])
+
+import pandas as pd
+product = pd.DataFrame({"wine" : ['sweet wine','rose wine'], 
+                 "sweet ph-value":[3.3,3.7],
+                  "rose ph-value":[3.3,3.5]})
+
+                  
+ax = product.plot("wine", "sweet ph-value", kind="line", label = 'sweet ph-value')
+product.plot("wine", "rose ph-value", ax= ax , kind="line", label = 'rose ph-value', title= 'MultiLine Plot')
+
+ax.set(ylabel='sweet ph-value', xlabel = 'wine', xticks =product["wine"])
+ax.set(ylabel='rose ph-value', xlabel = 'wine', xticks =product["wine"])
+
+
+import pandas as pd
+product=pd.DataFrame({"wine":['red wine','white wine','rose wine','sweet wine'],
+                      "ph-value":[3.2,3.3,3.5,3.7]})
+
+# plot line chart
+plt.plot(product["wine"], product["ph-value"])
+plt.title("Simple Line plot")
+plt.xlabel('wine')
+plt.ylabel('ph-value')
+
+product.plot(x="wine",y="ph-value",kind="line")
+product.plot(x="wine",y="ph-value",kind="bar")
+
+ax = product.plot(x="wine", y="ph-value", kind="line", title ="Simple Line Plot", legend=False, style = 'ro--')
+ax.set(ylabel='ph-value', xlabel = 'wine', xticks =product["wine"])
+
+ax.set_ylabel('ph-value')
+ax.set_xlabel('wine')
+ax.set_xticks(product["wine"])
+
+
